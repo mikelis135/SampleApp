@@ -16,5 +16,8 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func logSomething(_ sender: Any) {
+        print("just click")
+    }
 }
 
