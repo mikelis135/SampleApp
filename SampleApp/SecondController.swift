@@ -10,19 +10,37 @@ import UIKit
 
 class SecondController: UIViewController {
 
+     @IBOutlet weak var scrollView: UIScrollView!
+    var images = [UIImageView]()
+       var contentWidth : CGFloat = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        var contentWidth : CGFloat = 0.0
+     
+        for x in 0...2 {
+            
+//            let scrollWidth = scrollView.frame.size.width
+            
+            let image = UIImage(named: "icon\(x+1).jpg")
+            let imageView = UIImageView(image: image)
+            images.append(imageView)
+            
+            var newX : CGFloat = 0.0
+            
+            newX = (scrollView.frame.size.width/2) - 40 + scrollView.frame.size.width * CGFloat(x)
+        
+            contentWidth += newX
+            
+            scrollView.addSubview(imageView)
+
+            imageView.frame = CGRect(x:newX-75, y:(scrollView.frame.size.height/2)-125, width : 150, height : 150)
+        }
+    
+        scrollView.contentSize = CGSize(width: contentWidth, height: scrollView.frame.size.height)
     }
     
-
-
-    @IBAction func goBack(_ sender: UIButton) {
-         self.dismiss(animated: true, completion: nil)
-        print("back")
+    @IBAction func goBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-    
-    
-
 }
