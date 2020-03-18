@@ -13,13 +13,14 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     private var dataComing: String = ""
     
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var currentTempLabel: UILabel!
-    @IBOutlet weak var currentWeatherImage: UIImageView!
-    @IBOutlet weak var currentWeatherTypeLabel: UILabel!
+    @IBOutlet weak var currentTemp: UILabel!
+    @IBOutlet weak var currentDate: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var currentCity: UILabel!
+    @IBOutlet weak var currentImage: UIImageView!
+    @IBOutlet weak var currentWeatherType: UILabel!
     
+    var currentWeather = CurrentWeather()
     
     var getDataComing : String {
         get{
@@ -29,6 +30,7 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
             dataComing = newValue
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,8 +38,11 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self
         tableView.dataSource = self
         print(("Data : \(dataComing)"))
-        let currentWeather = CurrentWeather()
-        currentWeather.downloadWeatherDetails()
+        
+        currentWeather = CurrentWeather()
+        currentWeather.downloadWeatherDetails(){
+           self.updateUI()
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -59,6 +64,14 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for : indexPath)
         
         return cell
+    }
+    
+    func updateUI(){
+        print(" okh \(currentWeather.cityName)")
+        currentDate.text = currentWeather.date
+        currentTemp.text = "\(currentWeather.currentTemp)"
+        currentCity.text = currentWeather.cityName
+        currentWeatherType.text = currentWeather.weatherType
     }
     
     

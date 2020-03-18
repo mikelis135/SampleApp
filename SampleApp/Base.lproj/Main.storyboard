@@ -176,7 +176,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today, 3rd March 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDg-ad-eqW">
                                                         <rect key="frame" x="0.0" y="0.0" width="255" height="33.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="83.5°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxX-Xb-6lq">
@@ -296,6 +296,11 @@
                         <viewLayoutGuide key="safeArea" id="FNn-FN-NRP"/>
                     </view>
                     <connections>
+                        <outlet property="currentCity" destination="KFf-oL-ilX" id="cPw-gc-UOq"/>
+                        <outlet property="currentDate" destination="UDg-ad-eqW" id="hQq-Lf-Rsz"/>
+                        <outlet property="currentImage" destination="zh2-fi-o8V" id="mqE-QG-ggg"/>
+                        <outlet property="currentTemp" destination="yxX-Xb-6lq" id="0Dg-lX-nxy"/>
+                        <outlet property="currentWeatherType" destination="4cl-Ev-wid" id="JRa-ka-Uy4"/>
                         <outlet property="tableView" destination="QY0-18-hZH" id="Nev-aN-TD3"/>
                     </connections>
                 </viewController>
