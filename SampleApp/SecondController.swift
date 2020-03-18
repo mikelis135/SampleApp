@@ -40,6 +40,20 @@ class SecondController: UIViewController {
         scrollView.contentSize = CGSize(width: contentWidth, height: scrollView.frame.size.height)
     }
     
+    @IBAction func gotoThirdScreen(_ sender: Any) {
+        let data = "Data to be passed"
+        performSegue(withIdentifier: "ThirdViewController", sender: data)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ThirdViewController{
+            
+            if let data = sender as? String{
+                destination.getDataComing = data
+            }
+        }
+    }
+    
     @IBAction func goBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
