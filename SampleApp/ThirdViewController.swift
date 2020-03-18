@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
@@ -31,9 +32,13 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(CURRENT_WEATHER_URL)
         tableView.delegate = self
         tableView.dataSource = self
         print(("Data : \(dataComing)"))
+        let currentWeather = CurrentWeather()
+        currentWeather.downloadWeatherDetails()
+        
         // Do any additional setup after loading the view.
     }
     
