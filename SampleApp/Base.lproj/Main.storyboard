@@ -220,17 +220,18 @@
                                         <rect key="frame" x="0.0" y="140.33333333333337" width="355" height="695"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="UKM-Bq-K8f">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="UKM-Bq-K8f" customClass="WeatherTableViewCell" customModule="SampleApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="355" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UKM-Bq-K8f" id="mgb-IH-Va2">
                                                     <rect key="frame" x="0.0" y="0.0" width="355" height="79.666666666666671"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon1" translatesAutoresizingMaskIntoConstraints="NO" id="kys-I2-qrb">
-                                                            <rect key="frame" x="25" y="21" width="50" height="640"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon1" translatesAutoresizingMaskIntoConstraints="NO" id="kys-I2-qrb" userLabel="imageIcon">
+                                                            <rect key="frame" x="25" y="21" width="50" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="KrU-tK-bze"/>
+                                                                <constraint firstAttribute="height" constant="50" id="tR9-KS-uzY"/>
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Sdy-Nx-Fme">
@@ -242,7 +243,7 @@
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cloudy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyt-ct-XxV">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cloudy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uyt-ct-XxV" userLabel="weatherTypeLabel">
                                                                     <rect key="frame" x="0.0" y="29.333333333333332" width="70" height="13.333333333333332"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -251,7 +252,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="W6b-pL-5Wu">
-                                                            <rect key="frame" x="249.33333333333337" y="21" width="35" height="38"/>
+                                                            <rect key="frame" x="295" y="21" width="35" height="38"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="76.5°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkW-Io-lSO">
                                                                     <rect key="frame" x="0.0" y="0.0" width="35" height="11.666666666666666"/>
@@ -280,6 +281,13 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <connections>
+                                                    <outlet property="dayLabel" destination="MoT-2B-FNt" id="e08-eG-Mry"/>
+                                                    <outlet property="highTempLabel" destination="OkW-Io-lSO" id="1Lm-3h-7g6"/>
+                                                    <outlet property="lowTempLabel" destination="ajS-dS-H61" id="qVh-CP-G1e"/>
+                                                    <outlet property="weatherIcon" destination="kys-I2-qrb" id="E37-wL-DaL"/>
+                                                    <outlet property="weatherTypeLabel" destination="uyt-ct-XxV" id="YRS-NX-th3"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>

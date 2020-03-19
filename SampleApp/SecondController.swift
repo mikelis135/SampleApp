@@ -12,16 +12,15 @@ import Alamofire
 class SecondController: UIViewController {
 
      @IBOutlet weak var scrollView: UIScrollView!
+    
     var images = [UIImageView]()
        var contentWidth : CGFloat = 0.0
     override func viewDidLoad() {
         super.viewDidLoad()
 
         var contentWidth : CGFloat = 0.0
-     
+
         for x in 0...2 {
-            
-//            let scrollWidth = scrollView.frame.size.width
             
             let image = UIImage(named: "icon\(x+1).jpg")
             let imageView = UIImageView(image: image)
